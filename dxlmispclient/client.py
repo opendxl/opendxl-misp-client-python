@@ -47,7 +47,7 @@ class MispClient(Client):
         kwargs[self._PARAM_INFO] = info
         return self._invoke_service(self._REQ_TOPIC_NEW_EVENT, kwargs)
 
-    def sighting(self, uuid=None, id=None, **kwargs):
+    def sighting(self, uuid=None, id=None, **kwargs): # pylint: disable=invalid-name,redefined-builtin
         kwargs[self._PARAM_UUID] = uuid
         kwargs[self._PARAM_ID] = id
         return self._invoke_service(self._REQ_TOPIC_SIGHTING, kwargs)
