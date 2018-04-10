@@ -42,7 +42,7 @@ with DxlClient(config) as dxl_client:
     )
 
     # Print out the response (convert dictionary to JSON for pretty printing)
-    print("Response from the new event request:\n{0}".format(
+    print("Response to the new event request:\n{0}".format(
         MessageUtils.dict_to_json(new_event_response_dict, pretty_print=True)))
 
     # Invoke the search method to get the latest data for the event
@@ -51,5 +51,5 @@ with DxlClient(config) as dxl_client:
     )
 
     # Print out the response (convert dictionary to JSON for pretty printing)
-    print("Response from the search request:\n{0}".format(
+    print("Response to the search request for the new MISP event:\n{0}".format(
         MessageUtils.dict_to_json(search_response_dict, pretty_print=True)))

@@ -42,7 +42,7 @@ with DxlClient(config) as dxl_client:
     )
 
     # Print out the response (convert dictionary to JSON for pretty printing)
-    print("Response from new event request:\n{0}".format(
+    print("Response to the new event request:\n{0}".format(
         MessageUtils.dict_to_json(new_event_response_dict, pretty_print=True)))
 
     # Extract the id of the new event from the results of the new event request
@@ -53,13 +53,13 @@ with DxlClient(config) as dxl_client:
     add_internal_comment_response_dict = client.add_named_attribute(
         event=misp_event_id,
         type_value="comment",
-        value="Added by the OpenDXL update event example",
+        value="Added by the OpenDXL MISP update event example",
         category="Internal reference",
         comment="This is only a test"
     )
 
     # Print out the response (convert dictionary to JSON for pretty printing)
-    print("Response from the add internal comment request:\n{0}".format(
+    print("Response to the add internal comment request:\n{0}".format(
         MessageUtils.dict_to_json(add_internal_comment_response_dict,
                                   pretty_print=True)))
 
@@ -75,7 +75,7 @@ with DxlClient(config) as dxl_client:
     )
 
     # Print out the response (convert dictionary to JSON for pretty printing)
-    print("Response from the tag request:\n{0}".format(
+    print("Response to the tag request:\n{0}".format(
         MessageUtils.dict_to_json(tag_response_dict, pretty_print=True)))
 
     # Invoke the sighting method to add a sighting to the event
@@ -86,7 +86,7 @@ with DxlClient(config) as dxl_client:
     )
 
     # Print out the response (convert dictionary to JSON for pretty printing)
-    print("Response from the sighting request:\n{0}".format(
+    print("Response to the sighting request:\n{0}".format(
         MessageUtils.dict_to_json(sighting_response_dict, pretty_print=True)))
 
     # Invoke the search method to get the latest data for the event
@@ -95,5 +95,5 @@ with DxlClient(config) as dxl_client:
     )
 
     # Print out the response (convert dictionary to JSON for pretty printing)
-    print("Response from the search request:\n{0}".format(
+    print("Response to the search request for the new MISP event:\n{0}".format(
         MessageUtils.dict_to_json(search_response_dict, pretty_print=True)))

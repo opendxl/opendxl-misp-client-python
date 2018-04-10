@@ -54,7 +54,11 @@ class CiCommand(Command):
         self.run_command("lint")
         self.run_command("test")
 
-TEST_REQUIREMENTS = ["mock", "nose", "pylint", "requests-mock"]
+TEST_REQUIREMENTS = ["mock",
+                     "nose",
+                     "pylint",
+                     "requests-mock",
+                     "dxlmispservice"]
 
 DEV_REQUIREMENTS = TEST_REQUIREMENTS + ["sphinx"]
 
@@ -70,6 +74,13 @@ setup(
         "dxlbootstrap>=0.1.3",
         "dxlclient"
     ],
+
+    tests_require=TEST_REQUIREMENTS,
+
+    extras_require={
+        "dev": DEV_REQUIREMENTS,
+        "test": TEST_REQUIREMENTS
+    },
 
     # Package author details:
     author="McAfee LLC",
