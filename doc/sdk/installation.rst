@@ -10,7 +10,11 @@ Prerequisites
 * The OpenDXL Python Client prerequisites must be satisfied
    `<https://opendxl.github.io/opendxl-client-python/pydoc/installation.html>`_
 
-* Python 2.7.9 or higher in the Python 2.x series or 3.4.0 or higher in the Python 3.x series installed within a Windows or Linux environment.
+* The MISP DXL service is running and available on the DXL fabric
+    `<https://github.com/opendxl/opendxl-misp-service-python>`_
+
+* Python 2.7.9 or higher in the Python 2.x series or 3.4.0 or higher in the
+  Python 3.x series installed within a Windows or Linux environment.
 
 Installation
 ************

@@ -2,5 +2,6 @@ MANIFEST
 dist/
 *.pyc
 build/
+.eggs
 dxlmispclient.egg-info/
 sample/dxlmispservice.config

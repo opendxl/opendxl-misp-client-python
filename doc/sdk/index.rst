@@ -23,19 +23,23 @@ Samples
 Configuration
 
 .. toctree::
-    :maxdepth: 1
+	:maxdepth: 1
 
-    sampleconfig
+	sampleconfig
 
 Basic
 
-    TODO: Provide samples documentation
+.. toctree::
+	:maxdepth: 1
+
+	basicneweventexample
+	basicupdateeventexample
 
 Python API
 ----------
 
 .. toctree::
-    :titlesonly:
+	:titlesonly:
 
-    dxlmispclient
+	dxlmispclient
 
