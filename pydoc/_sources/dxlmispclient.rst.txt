@@ -1,0 +1,17 @@
+dxlmispclient package
+=====================
+
+Submodules
+----------
+
+.. toctree::
+
+   dxlmispclient.client
+
+Module contents
+---------------
+
+.. automodule:: dxlmispclient
+    :members:
+    :undoc-members:
+    :show-inheritance:

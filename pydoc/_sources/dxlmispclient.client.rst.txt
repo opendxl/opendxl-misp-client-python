@@ -1,0 +1,7 @@
+dxlmispclient.client module
+===========================
+
+.. automodule:: dxlmispclient.client
+    :members:
+    :undoc-members:
+    :show-inheritance:
