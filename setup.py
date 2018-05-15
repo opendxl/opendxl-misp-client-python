@@ -82,6 +82,8 @@ setup(
         "test": TEST_REQUIREMENTS
     },
 
+    test_suite="nose.collector",
+
     # Package author details:
     author="McAfee LLC",
 
@@ -111,6 +113,9 @@ setup(
     python_requires=">=2.7.9,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*",
 
     classifiers=[
+        "Development Status :: 4 - Beta",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
