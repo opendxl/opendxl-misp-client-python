@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 import copy
 import json
+import os
 import re
 import sys
 from tempfile import NamedTemporaryFile
@@ -70,8 +71,7 @@ class Sample(unittest.TestCase):
         return mock_print
 
     def run_sample(self, sample_file, add_request_mocks_fn=None):
-        with dxlmispservice.MispService("sample") as app, \
-                NamedTemporaryFile(mode="w+") as temp_config_file:
+        with dxlmispservice.MispService("sample") as app:
             config = ConfigParser()
             config.read(app._app_config_path)
 
@@ -105,45 +105,48 @@ class Sample(unittest.TestCase):
                 dxlmispservice.MispService._GENERAL_API_NAMES_CONFIG_PROP,
                 self._TEST_API_NAMES
             )
+            with NamedTemporaryFile(mode="w+", delete=False) \
+                as temp_config_file:
+                config.write(temp_config_file)
+            try:
+                app._app_config_path = temp_config_file.name
 
-            config.write(temp_config_file)
-            temp_config_file.flush()
-            app._app_config_path = temp_config_file.name
-
-            if use_mock_requests:
-                with requests_mock.mock(case_sensitive=True) as req_mock:
-                    req_mock.get(
-                        self.get_api_endpoint("servers/getPyMISPVersion.json"),
-                        text='{"version":"1.2.3"}')
-                    types_result = {
-                        "result":
-                            {
-                                "categories": [
-                                    "Internal reference",
-                                    "Other"
-                                ],
-                                "sane_defaults":
-                                    {"comment": {
-                                        "default_category": "Other",
-                                        "to_ids": 0
-                                    }},
-                                "types": ["comment"],
-                                "category_type_mappings": {
-                                    "Internal reference": ["comment"],
-                                    "Other": ["comment"]
+                if use_mock_requests:
+                    with requests_mock.mock(case_sensitive=True) as req_mock:
+                        req_mock.get(
+                            self.get_api_endpoint("servers/getPyMISPVersion.json"),
+                            text='{"version":"1.2.3"}')
+                        types_result = {
+                            "result":
+                                {
+                                    "categories": [
+                                        "Internal reference",
+                                        "Other"
+                                    ],
+                                    "sane_defaults":
+                                        {"comment": {
+                                            "default_category": "Other",
+                                            "to_ids": 0
+                                        }},
+                                    "types": ["comment"],
+                                    "category_type_mappings": {
+                                        "Internal reference": ["comment"],
+                                        "Other": ["comment"]
+                                    }
                                 }
-                            }
-                    }
-                    req_mock.get(
-                        self.get_api_endpoint("attributes/describeTypes.json"),
-                        text=json.dumps(types_result))
+                        }
+                        req_mock.get(
+                            self.get_api_endpoint("attributes/describeTypes.json"),
+                            text=json.dumps(types_result))
 
-                    if add_request_mocks_fn:
-                        add_request_mocks_fn(req_mock)
+                        if add_request_mocks_fn:
+                            add_request_mocks_fn(req_mock)
+                        mock_print = self._run_sample(app, sample_file)
+                else:
                     mock_print = self._run_sample(app, sample_file)
-            else:
-                mock_print = self._run_sample(app, sample_file)
-                req_mock = None
+                    req_mock = None
+            finally:
+                os.remove(temp_config_file.name)
         return (mock_print, req_mock)
 
     def test_basic_new_event_example(self):
