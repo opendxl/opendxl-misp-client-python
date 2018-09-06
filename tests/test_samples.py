@@ -316,7 +316,7 @@ class Sample(unittest.TestCase):
             sighting_request = req_mock.request_history[request_count - 2]
             self.assertEqual({
                 "source": "Seen by the OpenDXL MISP update event example",
-                "type": 0,
+                "type": "0",
                 "uuid": expected_attribute_uuid
             }, sighting_request.json())
 
