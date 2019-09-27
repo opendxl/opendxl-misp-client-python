@@ -150,13 +150,12 @@ class Sample(unittest.TestCase):
     def test_basic_new_event_example(self):
         mock_event_id = "123456"
         expected_event_detail = {
-            "Event": {
                 "analysis": "1",
                 "distribution": "3",
                 "info": "OpenDXL MISP new event example",
                 "published": False,
                 "threat_level_id": "3"
-            }}
+            }
 
         def add_request_mocks(req_mock):
             event_detail_with_id = copy.deepcopy(expected_event_detail)
@@ -178,13 +177,12 @@ class Sample(unittest.TestCase):
 
             new_event_request = req_mock.request_history[request_count - 2]
             self.assertEqual({
-                "Event": {
                     "analysis": "1",
                     "distribution": "3",
                     "info": "OpenDXL MISP new event example",
                     "published": False,
                     "threat_level_id": "3"
-                }}, new_event_request.json())
+                }, new_event_request.json())
 
             search_request = req_mock.request_history[request_count - 1]
             self.assertEqual(self._TEST_API_KEY,
@@ -210,13 +208,12 @@ class Sample(unittest.TestCase):
     def test_basic_update_event_example(self):
         mock_event_id = "123456"
         expected_event_detail = {
-            "Event": {
                 "analysis": "1",
                 "distribution": "3",
                 "info": "OpenDXL MISP update event example",
                 "published": False,
                 "threat_level_id": "3"
-            }}
+            }
         mock_attribute_uuid = ["79e88e45-09eb-4f9b-ba46-c2c850b5eb03"]
         expected_attribute_detail = {
             "category": "Internal reference",
