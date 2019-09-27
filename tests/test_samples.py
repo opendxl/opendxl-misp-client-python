@@ -154,7 +154,6 @@ class Sample(unittest.TestCase):
                 "analysis": "1",
                 "distribution": "3",
                 "info": "OpenDXL MISP new event example",
-                "analysis": "1",
                 "published": False,
                 "threat_level_id": "3"
             }}
@@ -183,7 +182,6 @@ class Sample(unittest.TestCase):
                     "analysis": "1",
                     "distribution": "3",
                     "info": "OpenDXL MISP new event example",
-                    "analysis": "1",
                     "published": False,
                     "threat_level_id": "3"
                 }}, new_event_request.json())
@@ -216,7 +214,6 @@ class Sample(unittest.TestCase):
                 "analysis": "1",
                 "distribution": "3",
                 "info": "OpenDXL MISP update event example",
-                "analysis": "1",
                 "published": False,
                 "threat_level_id": "3"
             }}
