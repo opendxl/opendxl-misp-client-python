@@ -55,10 +55,11 @@ class CiCommand(Command):
         self.run_command("test")
 
 TEST_REQUIREMENTS = ["mock",
-                     "nose",
-                     "pylint",
+                     "nose",                     
                      "requests-mock",
-                     "dxlmispservice"]
+                     "dxlmispservice",
+                     "astroid<2.3.0", 
+                     "pylint<=2.3.1"]
 
 DEV_REQUIREMENTS = TEST_REQUIREMENTS + ["sphinx"]
 
