@@ -151,6 +151,7 @@ class Sample(unittest.TestCase):
         mock_event_id = "123456"
         expected_event_detail = {
             "Event": {
+                "analysis": "1",
                 "distribution": "3",
                 "info": "OpenDXL MISP new event example",
                 "analysis": "1",
@@ -179,6 +180,7 @@ class Sample(unittest.TestCase):
             new_event_request = req_mock.request_history[request_count - 2]
             self.assertEqual({
                 "Event": {
+                    "analysis": "1",
                     "distribution": "3",
                     "info": "OpenDXL MISP new event example",
                     "analysis": "1",
@@ -211,6 +213,7 @@ class Sample(unittest.TestCase):
         mock_event_id = "123456"
         expected_event_detail = {
             "Event": {
+                "analysis": "1",
                 "distribution": "3",
                 "info": "OpenDXL MISP update event example",
                 "analysis": "1",
