@@ -159,7 +159,7 @@ class Sample(unittest.TestCase):
 
         def add_request_mocks(req_mock):
             event_detail_with_id = copy.deepcopy(expected_event_detail)
-            event_detail_with_id["Event"]["id"] = mock_event_id
+            event_detail_with_id["id"] = mock_event_id
             req_mock.post(self.get_api_endpoint("events"),
                           text=json.dumps(event_detail_with_id))
             event_response_data = {"response": event_detail_with_id}
@@ -260,7 +260,7 @@ class Sample(unittest.TestCase):
 
         def add_request_mocks(req_mock):
             event_detail_with_id = copy.deepcopy(expected_event_detail)
-            event_detail_with_id["Event"]["id"] = mock_event_id
+            event_detail_with_id["id"] = mock_event_id
             req_mock.post(self.get_api_endpoint("events"),
                           text=json.dumps(event_detail_with_id))
             req_mock.post(
