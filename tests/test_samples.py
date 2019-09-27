@@ -7,7 +7,6 @@ import sys
 from tempfile import NamedTemporaryFile
 import unittest
 
-
 if sys.version_info[0] > 2:
     import builtins  # pylint: disable=import-error, unused-import
 else:
